@@ -1,0 +1,37 @@
+<!--pages/login/login.wxml-->
+
+<!-- 智慧路灯登录界面 -->
+
+
+
+<image src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1543378774934&di=1e66f8b843c5e56823c5681df61b38ca&imgtype=0&src=http%3A%2F%2Ffile4.youboy.com%2Fe%2F2014%2F11%2F18%2F28%2F281626.jpg' class='image'></image>
+
+<view class='bigbox'>
+
+<view  class='title'>
+  <text>路灯信息查询系统</text> 
+</view>
+
+<view class='longinBox'>
+
+  <view>
+   <text class='text'>用户代码：</text> 
+   <input name='username' value='' class='input' bindblur='userSet' ></input>
+</view>
+
+<view>
+    <text class='text'>密 码：</text>
+    <input name='passwork' value='' class='input' bindblur='passSet'
+    password='true'></input>
+</view>
+
+<button bindtap='login' class='btn'>登录</button>
+
+</view>
+
+
+
+</view>
+
+
+

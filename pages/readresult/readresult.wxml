@@ -1,0 +1,139 @@
+<!--pages/readresult/readresult.wxml-->
+<!-- <text>pages/readresult/readresult.wxml</text> -->
+
+<!--根据编号查询路灯具体讯息 -->
+
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-search-bar">
+            <view class="weui-search-bar__form">
+                <view class="weui-search-bar__box">
+                    <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                    <input type="text" class="weui-search-bar__input" placeholder="搜索路灯" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+                    <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+                        <icon type="clear" size="14"></icon>
+                    </view>
+                </view>
+                <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+                    <icon class="weui-icon-search" type="search" size="14"></icon>
+                    <view class="weui-search-bar__text">根据灯具编号搜索路灯</view>
+                </label>
+            </view>
+            <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">搜索</view>
+        </view>
+      </view>
+</view>   
+
+
+<!-- 根据灯杆号查询点击查询信息 -->
+
+<view>
+
+<view wx:if='{{showLightList}}'>
+<view>灯杆号(红色代表路灯当前状态有异常)：</view>
+<view>
+
+ <!-- 根据道路编号获取最近一次各灯具读取中的异常信息 -->
+ <button bindtap='ShowAbnormal' class='abnormal'>获取各灯具异常信息({{LampStatus.length}})</button>
+
+ <!-- 灯具异常种类及数量折线图页面跳转 -->
+   <button bindtap='Numbre' class='abnormal'>灯具异常种类及数量图表</button>
+
+</view>
+
+
+
+
+<view class='LampPoleIdsBox'>
+
+<button wx:for="{{LampPoleIds}}" wx:item = 'item' wx:index='index'
+class='{{LampMessageS[index].LightStatus1 === "0000" ? "LampPoleIds" : "LampPoleIdsN"}}' bindtap='messageLamp' data-index='{{index}}'
+wx:key='key' >{{item}}
+
+</button>
+</view>
+
+<!-- 灯具异常种类及数量折线图页面跳转 -->
+<!-- <view>
+
+  <button bindtap='Numbre' class='abnormal' type='warn'>异常种类及数量图表</button> -->
+
+<!-- </view> -->
+
+
+
+</view>
+
+ <view wx:if='{{showAbnormal}}'>
+  <view>路灯信息异常：</view>
+   <!-- 获取并计算最近一次各灯具读取信息中的异常信息种类和数目 -->
+   <view wx:if='{{showAbnormal}}' class='LampMessageSNumBox'>
+
+     <view wx:if='{{showAbnormal}}'> 
+     <!-- 异常类型及数量折线图 -->
+<!-- <view class="container">
+  <ec-canvas id="mychart-dom-data" canvas-id="mychart-data" ec="{{ ec }}"></ec-canvas>
+</view>  -->
+    <!-- 异常类型及数量表格 -->
+  <text class='LampMessageSNum'>灯具异常信息种类和数目:</text>
+  <text wx:for='{{LampStatusNum}}' wx:for-item='value' wx:for-index="key" wx:key='id'
+  class='LampMessageSNum' wx:if="{{key !== 'Status'}}">
+  种类：{{key}}；数量:{{value}}个</text> 
+
+ </view> 
+  
+  </view> 
+
+
+  <view wx:for='{{LampStatus}}' wx:for-item='item' wx:for-index='index' wx:key='key' class='lightBox'>
+  <view class='LampMessageS'>{{index+1}}、灯具异常详情：
+   <!-- 返回路灯显示列表 -->
+  <button type='primary' bindtap='showLightList' class='backLightList'>
+  返回路灯列表</button>
+
+  </view>
+  <view class='LampMessageS'>灯具编号：{{item.LampCode1}}</view>
+  <view class='LampMessageS'>灯杆编号：{{item.LampPoleId1}}</view>
+  <view class='LampMessageS'>路灯电平：{{item.LightBright1}}</view>
+  <view class='LampMessageS'>路灯电流：{{item.LightCurrent1}}</view>
+  <view class='LampMessageS'>路灯功率：{{item.LightPower1}}</view>
+  <view class='LampMessageSN'>当前状态：{{item.LightStatus1}}</view>
+  <view class='LampMessageS'>路灯电压：{{item.LightVoltage1}}</view>
+  <view class='LampMessageS'>心跳时间：{{item.R_TimeStamp1}}</view> 
+
+  </view>
+  
+<!-- 返回显示路灯列表 -->
+<button type='primary' bindtap='showLightList' class='backLightList1'>返回路灯列表</button>
+
+</view>
+
+
+<!-- 点击获取路灯具体的讯息 -->
+  <!-- <view wx:for="{{LampChinese}}" wx:for-item="item" wx:key='key'>
+  <text>{{item}}:</text>
+  </view> -->
+
+  <!-- <view wx:for='{{LampMessageS[indexLamp]}}' wx:for-item='item' wx:key='key'>     
+      <text class='LampMessageS'>{{item}}</text>     
+  </view> -->
+
+<view wx:if='{{show}}'>
+  <view class='LampMessageS'>灯具详情：</view>
+  <view class='LampMessageS'>灯具编号：{{LampMessageS[indexLamp].LampCode1}}</view>
+  <view class='LampMessageS'>灯杆编号：{{LampMessageS[indexLamp].LampPoleId1}}</view>
+  <view class='LampMessageS'>路灯电平：{{LampMessageS[indexLamp].LightBright1}}</view>
+  <view class='LampMessageS'>路灯电流：{{LampMessageS[indexLamp].LightCurrent1}}</view>
+  <view class='LampMessageS'>路灯功率：{{LampMessageS[indexLamp].LightPower1}}</view>
+  <view class='{{LampMessageS[indexLamp].LightStatus1 === "0000" ? "LampMessageSY" : "LampMessageSN"}}'>当前状态：{{LampMessageS[indexLamp].LightStatus1}}</view>
+  <view class='LampMessageS'>路灯电压：{{LampMessageS[indexLamp].LightVoltage1}}</view>
+  <view class='LampMessageS'>心跳时间：{{LampMessageS[indexLamp].R_TimeStamp1}}</view>
+
+  <!-- 返回路灯显示列表 -->
+  <button type='primary' bindtap='showLightList' class='backLightList1'>返回路灯列表</button>
+</view >
+</view>
+
+ 
+
+  

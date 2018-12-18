@@ -1,0 +1,6 @@
+<!--pages/lineChart/lineChart.wxml-->
+<!-- <text>pages/lineChart/lineChart.wxml</text> -->
+   <!-- 异常类型及数量折线图 -->
+<view class="container">
+  <ec-canvas id="mychart-dom-data" canvas-id="mychart-data" ec="{{ ec }}"></ec-canvas>
+</view> 

@@ -1,0 +1,55 @@
+<!--pages/my/my.wxml-->
+<!-- <text>pages/my/my.wxml</text> -->
+<view>
+
+  <view>
+    <image src='../../images/mybg.png' class='imagesCss'></image>  
+  </view>
+
+<view class='viewCss'>
+
+<view  class='textCss2' bindtap='login'>
+<image src='../../images/login.png' class='viewSmallBox'></image>
+<text> 
+登录</text>
+</view>
+
+ <view  class='textCss1'>
+ <text> 
+ 操作2</text>
+ </view>  
+  
+  <view  class='textCss1'>
+  <text >
+  操作3</text>
+  </view> 
+
+  <view  class='textCss1'>
+  <text> 
+  操作4</text>
+  </view>
+  
+  <view  class='textCss3'>
+   <text> 
+   操作5</text>
+  </view>
+ 
+  <view  class='textCss'>
+  <text> 
+  操作6</text>
+  </view>
+  
+  <view class='textCss'>
+   <text> 
+   操作7</text>
+  </view>
+ 
+  <view class='textCss'>
+  <text> 
+  操作8</text>
+  </view>
+  
+</view>
+
+
+</view>

@@ -1,0 +1,60 @@
+/* pages/my/my.wxss */
+.imagesCss{
+  height: 300rpx;
+  width: 100%;
+}
+.textCss1{
+box-sizing:border-box;
+width:25%;
+float:left;
+display: block;
+border: 1rpx solid rgb(170, 161, 161);
+text-align: center;
+border-right:0rpx; 
+border-bottom:0rpx; 
+font-size: 30rpx;
+height: 150rpx;
+}
+
+.textCss{
+box-sizing:border-box;
+width:25%;
+float:left;
+display: block;
+border: 1rpx solid rgb(170, 161, 161);
+text-align: center;
+border-right:0rpx; 
+font-size: 30rpx;
+height: 150rpx;
+}
+.textCss2{
+box-sizing:border-box;
+width:25%;
+float:left;
+display: block;
+border: 1rpx solid rgb(170, 161, 161);
+text-align: center;
+border-right:0rpx; 
+border-bottom:0rpx; 
+border-left:0rpx; 
+font-size: 30rpx;
+height: 150rpx;
+}
+.textCss3{
+box-sizing:border-box;
+width:25%;
+float:left;
+display: block;
+border: 1rpx solid rgb(170, 161, 161);
+text-align: center;
+border-right:0rpx;  
+border-left:0rpx; 
+font-size: 30rpx;
+height: 150rpx;
+}
+.viewSmallBox{
+    width:50rpx;
+    height:50rpx;
+    margin-top:20rpx;
+    /* float: left; */
+}

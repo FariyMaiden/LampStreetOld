@@ -1,0 +1,40 @@
+{
+  "pages":[
+
+    "pages/search/search",
+    "pages/login/login",   
+    "pages/readresult/readresult",
+    "pages/lineChart/lineChart",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/my/my"
+  
+  ],
+  "window": {
+    "backgroundTextStyle": "light"
+   
+  },
+ 
+   "tabBar": {
+        "color": "black",
+        "selectedColor": "#d81e06",
+        "borderStyle": "black",
+        "list": [
+      {
+              "selectedIconPath": "images/查询 (1).png",
+              "iconPath": "images/查询.png",  
+              "pagePath": "pages/search/search",
+              "text": "状态查询"  
+
+      },
+       {
+              "selectedIconPath": "images/应用管理 (1).png",
+              "iconPath": "images/应用管理.png",
+              "pagePath": "pages/my/my",
+              "text": "设备管理"  
+
+      }
+    ]  
+  }
+
+ }
